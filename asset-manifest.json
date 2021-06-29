@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/lint-staged--test/static/css/main.09e55852.chunk.css",
+    "main.js": "/lint-staged--test/static/js/main.4f0bf492.chunk.js",
+    "main.js.map": "/lint-staged--test/static/js/main.4f0bf492.chunk.js.map",
+    "runtime-main.js": "/lint-staged--test/static/js/runtime-main.45fc6a28.js",
+    "runtime-main.js.map": "/lint-staged--test/static/js/runtime-main.45fc6a28.js.map",
+    "static/js/2.eef7bf39.chunk.js": "/lint-staged--test/static/js/2.eef7bf39.chunk.js",
+    "static/js/2.eef7bf39.chunk.js.map": "/lint-staged--test/static/js/2.eef7bf39.chunk.js.map",
+    "index.html": "/lint-staged--test/index.html",
+    "static/css/main.09e55852.chunk.css.map": "/lint-staged--test/static/css/main.09e55852.chunk.css.map",
+    "static/js/2.eef7bf39.chunk.js.LICENSE.txt": "/lint-staged--test/static/js/2.eef7bf39.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.45fc6a28.js",
+    "static/js/2.eef7bf39.chunk.js",
+    "static/css/main.09e55852.chunk.css",
+    "static/js/main.4f0bf492.chunk.js"
+  ]
+}
