@@ -1,11 +1,13 @@
 // import logo from "./logo.svg";
 import React, { Component } from 'react';
 import './App.css';
-import Counter from './components/Counter';
-import Dropdown from './components/Dropdown';
+// import Counter from './components/Counter';
+// import Dropdown from './components/Dropdown';
 import ColorPicker from './components/ColorPicker';
-import TodoList from './components/TodoList';
+// import TodoList from './components/TodoList';
+import Form from './components/TodoList/Form';
 import initialTodos from './todos.json';
+import Container from './components/Container/Container';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -26,28 +28,49 @@ class App extends Component {
     }));
   };
 
+  formSubmitHandler = data => {
+    setTimeout(() => {
+      console.log(data);
+    }, 1000);
+  };
+
+  // handleNameChange = event => {
+  //   // console.log(event.currentTarget.value);
+  //   this.setState({ name: event.currentTarget.value });
+  // }
+
+  // handleTagChange = event => {
+  //   this.setState({ tag: event.currentTarget.value });
+  // };
+
   render() {
-    const { todos } = this.state;
+    // const { todos } = this.state;
 
-    const totalTodoCount = todos.length;
+    // const totalTodoCount = todos.length;
 
-    const completedTodoCount = todos.reduce(
-      (total, todo) => (todo.completed ? total + 1 : total),
-      0,
-    );
+    // const completedTodoCount = todos.reduce(
+    //   (total, todo) => (todo.completed ? total + 1 : total),
+    //   0,
+    // );
 
     return (
-      <>
-        <h1>Состояние документа</h1>
+      <Container>
+        <Form onSubmit={this.formSubmitHandler} />
+
+        {/* <input
+          type="text"
+          value={this.state.inputValue}
+          onChange={this.handleInputChange} /> */}
+        {/* <h1>Состояние документа</h1>
         <div>
           <p>Общее кол-во: {totalTodoCount}</p>
           <p>Кол-во выполненных: {completedTodoCount}</p>
         </div>
-        <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
+        <TodoList todos={todos} onDeleteTodo={this.deleteTodo} /> */}
         <ColorPicker options={colorPickerOptions} />
-        <Counter />
-        <Dropdown />
-      </>
+        {/* <Counter />
+        <Dropdown /> */}
+      </Container>
     );
   }
 }
