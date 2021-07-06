@@ -5,12 +5,12 @@ import Counter from './components/Counter';
 import shortid from 'shortid';
 import Dropdown from './components/Dropdown';
 import ColorPicker from './components/ColorPicker';
-// import TodoList from './components/TodoList';
-// import TodoEditor from './components/TodoEditor';
+import TodoList from './components/TodoList';
+import TodoEditor from './components/TodoEditor';
 import Form from './components/TodoList/Form';
 import initialTodos from './todos.json';
 import Container from './components/Container/Container';
-// import Filter from './components/Filter';
+import Filter from './components/Filter';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -100,34 +100,34 @@ class App extends Component {
   };
 
   render() {
-    // const { todos, filter } = this.state;
+    const { todos, filter } = this.state;
 
-    // const totalTodoCount = todos.length;
+    const totalTodoCount = todos.length;
 
-    // const completedTodoCount = this.calculateCompletedTodos();
-    //  const visibleTodos = this.getVisibleTodos();
+    const completedTodoCount = this.calculateCompletedTodos();
+    const visibleTodos = this.getVisibleTodos();
 
     return (
       <Container>
         <Form onSubmit={this.formSubmitHandler} />
 
-        {/* <input
-          type="text"
-          value={this.state.inputValue}
-          onChange={this.handleInputChange} /> */}
-        {/* <h1>Состояние документа</h1>
+        {/* {/* <input */}
+        {/* type="text" */}
+        {/* value={this.state.inputValue} */}
+        {/* onChange={this.handleInputChange} /> */}
+        <h1>Состояние документа</h1>
         <div>
           <p>Общее кол-во: {totalTodoCount}</p>
           <p>выполненных: {completedTodoCount}</p>
         </div>
-          <TodoEditor onSubmit={this.addTodo} />
+        <TodoEditor onSubmit={this.addTodo} />
 
         <Filter value={filter} onChange={this.changeFilter} />
         <TodoList
           todos={visibleTodos}
           onDeleteTodo={this.deleteTodo}
           onToggleCompleted={this.toggleCompleted}
-        /> */}
+        />
         <ColorPicker options={colorPickerOptions} />
         <Counter />
         <Dropdown />
