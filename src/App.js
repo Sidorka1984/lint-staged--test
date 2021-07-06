@@ -8,8 +8,9 @@ import ColorPicker from './components/ColorPicker';
 import TodoList from './components/TodoList';
 import TodoEditor from './components/TodoEditor';
 import Form from './components/TodoList/Form';
-import initialTodos from './todos.json';
+// import initialTodos from './todos.json';
 import Container from './components/Container/Container';
+import Modal from './components/Modal/Modal';
 import Filter from './components/Filter';
 
 const colorPickerOptions = [
@@ -23,9 +24,28 @@ const colorPickerOptions = [
 
 class App extends Component {
   state = {
-    todos: initialTodos,
+    todos: [],
     filter: '',
+    showModal: false,
   };
+
+  componentDidMount() {
+    console.log('APP componentDidMounte');
+    const todos = localStorage.getItem('todos');
+    const parsedTodos = JSON.parse(todos);
+
+    if (parsedTodos) {
+      this.setState({ todos: parsedTodos });
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('APP componentDidMounte');
+    if (this.state.todos !== prevState.todos) {
+      console.log('обновилось поле todos, записываю todos в хранилище');
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+  }
+
   addTodo = text => {
     const todo = {
       id: shortid.generate(),
@@ -99,8 +119,15 @@ class App extends Component {
     );
   };
 
+  togleModal = () => {
+    this.setState(({ showModal }) => ({
+      showModal: !showModal,
+    }));
+  };
+
   render() {
-    const { todos, filter } = this.state;
+    console.log('App render');
+    const { todos, filter, showModal } = this.state;
 
     const totalTodoCount = todos.length;
 
@@ -109,28 +136,48 @@ class App extends Component {
 
     return (
       <Container>
-        <Form onSubmit={this.formSubmitHandler} />
+        <button type="button" onClick={this.togleModal}>
+          Открытие модалки
+        </button>
+        {showModal && (
+          <Modal>
+            <h1>hello, this content modal each children</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum
+            </p>
+            <button type="button" onClick={this.togleModal}>
+              Close
+            </button>
+          </Modal>
+        )}
+        {/* <Form onSubmit={this.formSubmitHandler} /> */}
 
         {/* {/* <input */}
         {/* type="text" */}
         {/* value={this.state.inputValue} */}
         {/* onChange={this.handleInputChange} /> */}
-        <h1>Состояние документа</h1>
-        <div>
-          <p>Общее кол-во: {totalTodoCount}</p>
-          <p>выполненных: {completedTodoCount}</p>
-        </div>
-        <TodoEditor onSubmit={this.addTodo} />
+        {/* <h1>Состояние документа</h1> */}
+        {/* <div> */}
+        {/* <p>Общее кол-во: {totalTodoCount}</p> */}
+        {/* <p>выполненных: {completedTodoCount}</p> */}
+        {/* </div> */}
+        {/* <TodoEditor onSubmit={this.addTodo} /> */}
 
-        <Filter value={filter} onChange={this.changeFilter} />
-        <TodoList
-          todos={visibleTodos}
-          onDeleteTodo={this.deleteTodo}
-          onToggleCompleted={this.toggleCompleted}
-        />
-        <ColorPicker options={colorPickerOptions} />
-        <Counter />
-        <Dropdown />
+        {/* <Filter value={filter} onChange={this.changeFilter} /> */}
+        {/* <TodoList */}
+        {/* // todos={visibleTodos} */}
+        {/* // onDeleteTodo={this.deleteTodo} */}
+        {/* // onToggleCompleted={this.toggleCompleted} */}
+        {/* // /> */}
+        {/* <ColorPicker options={colorPickerOptions} /> */}
+        {/* <Counter /> */}
+        {/* <Dropdown /> */}
       </Container>
     );
   }
