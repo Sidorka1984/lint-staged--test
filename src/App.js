@@ -8,10 +8,15 @@ import ColorPicker from './components/ColorPicker';
 import TodoList from './components/TodoList';
 import TodoEditor from './components/TodoEditor';
 import Form from './components/TodoList/Form';
+import Clock from './components/Clock';
 // import initialTodos from './todos.json';
 import Container from './components/Container/Container';
 import Modal from './components/Modal/Modal';
-import Filter from './components/Filter';
+import IconButton from './components/IconButton/IconButton';
+import { ReactComponent as AddIcon } from './components/Icons/add.svg';
+import Tabs from './components/Tabs';
+import tabs from './tabs.json';
+import Filter from './components/TodoFilter/Filter';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -135,9 +140,12 @@ class App extends Component {
 
     return (
       <Container>
-        <button type="button" onClick={this.togleModal}>
-          Открытие модалки
-        </button>
+        {/* <Clock /> */}
+        {/* <Tabs items={tabs} /> */}
+
+        <IconButton onClick={this.togleModal}>
+          <AddIcon width="40" height="40" fill="#fff" />
+        </IconButton>
         {showModal && (
           <Modal onClose={this.togleModal}>
             <h1>hello, this content modal each children</h1>
@@ -157,23 +165,23 @@ class App extends Component {
         )}
         {/* <Form onSubmit={this.formSubmitHandler} /> */}
 
-        {/* {/* <input */}
-        {/* type="text" */}
-        {/* value={this.state.inputValue} */}
-        {/* onChange={this.handleInputChange} /> */}
-        {/* <h1>Состояние документа</h1> */}
-        {/* <div> */}
-        {/* <p>Общее кол-во: {totalTodoCount}</p> */}
-        {/* <p>выполненных: {completedTodoCount}</p> */}
-        {/* </div> */}
-        {/* <TodoEditor onSubmit={this.addTodo} /> */}
+        {/* <input */}
+        {/* // type="text" */}
+        {/* // value={this.state.inputValue} */}
+        {/* // onChange={this.handleInputChange} /> */}
+        <h1>Состояние документа</h1>
+        <div>
+          <p>Общее кол-во: {totalTodoCount}</p>
+          <p>выполненных: {completedTodoCount}</p>
+        </div>
+        <TodoEditor onSubmit={this.addTodo} />
 
-        {/* <Filter value={filter} onChange={this.changeFilter} /> */}
-        {/* <TodoList */}
-        {/* // todos={visibleTodos} */}
-        {/* // onDeleteTodo={this.deleteTodo} */}
-        {/* // onToggleCompleted={this.toggleCompleted} */}
-        {/* // /> */}
+        <Filter value={filter} onChange={this.changeFilter} />
+        <TodoList
+          todos={visibleTodos}
+          onDeleteTodo={this.deleteTodo}
+          onToggleCompleted={this.toggleCompleted}
+        />
         {/* <ColorPicker options={colorPickerOptions} /> */}
         {/* <Counter /> */}
         {/* <Dropdown /> */}
