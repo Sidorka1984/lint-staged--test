@@ -30,7 +30,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    console.log('APP componentDidMounte');
+    // console.log('APP componentDidMounte');
     const todos = localStorage.getItem('todos');
     const parsedTodos = JSON.parse(todos);
 
@@ -39,9 +39,9 @@ class App extends Component {
     }
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log('APP componentDidMounte');
+    // console.log('APP componentDidMounte');
     if (this.state.todos !== prevState.todos) {
-      console.log('обновилось поле todos, записываю todos в хранилище');
+      // console.log('обновилось поле todos, записываю todos в хранилище');
       localStorage.setItem('todos', JSON.stringify(this.state.todos));
     }
   }
@@ -126,7 +126,6 @@ class App extends Component {
   };
 
   render() {
-    console.log('App render');
     const { todos, filter, showModal } = this.state;
 
     const totalTodoCount = todos.length;
@@ -140,7 +139,7 @@ class App extends Component {
           Открытие модалки
         </button>
         {showModal && (
-          <Modal>
+          <Modal onClose={this.togleModal}>
             <h1>hello, this content modal each children</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
