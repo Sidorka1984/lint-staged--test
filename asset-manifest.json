@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/lint-staged--test/static/css/main.27f8b95b.chunk.css",
-    "main.js": "/lint-staged--test/static/js/main.0d3a9351.chunk.js",
-    "main.js.map": "/lint-staged--test/static/js/main.0d3a9351.chunk.js.map",
+    "main.css": "/lint-staged--test/static/css/main.a47b059d.chunk.css",
+    "main.js": "/lint-staged--test/static/js/main.e36ab5d9.chunk.js",
+    "main.js.map": "/lint-staged--test/static/js/main.e36ab5d9.chunk.js.map",
     "runtime-main.js": "/lint-staged--test/static/js/runtime-main.45fc6a28.js",
     "runtime-main.js.map": "/lint-staged--test/static/js/runtime-main.45fc6a28.js.map",
-    "static/js/2.e5b61135.chunk.js": "/lint-staged--test/static/js/2.e5b61135.chunk.js",
-    "static/js/2.e5b61135.chunk.js.map": "/lint-staged--test/static/js/2.e5b61135.chunk.js.map",
+    "static/js/2.1ae7e5de.chunk.js": "/lint-staged--test/static/js/2.1ae7e5de.chunk.js",
+    "static/js/2.1ae7e5de.chunk.js.map": "/lint-staged--test/static/js/2.1ae7e5de.chunk.js.map",
     "index.html": "/lint-staged--test/index.html",
-    "static/css/main.27f8b95b.chunk.css.map": "/lint-staged--test/static/css/main.27f8b95b.chunk.css.map",
-    "static/js/2.e5b61135.chunk.js.LICENSE.txt": "/lint-staged--test/static/js/2.e5b61135.chunk.js.LICENSE.txt"
+    "static/css/main.a47b059d.chunk.css.map": "/lint-staged--test/static/css/main.a47b059d.chunk.css.map",
+    "static/js/2.1ae7e5de.chunk.js.LICENSE.txt": "/lint-staged--test/static/js/2.1ae7e5de.chunk.js.LICENSE.txt",
+    "static/media/error.7d86105a.jpg": "/lint-staged--test/static/media/error.7d86105a.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.45fc6a28.js",
-    "static/js/2.e5b61135.chunk.js",
-    "static/css/main.27f8b95b.chunk.css",
-    "static/js/main.0d3a9351.chunk.js"
+    "static/js/2.1ae7e5de.chunk.js",
+    "static/css/main.a47b059d.chunk.css",
+    "static/js/main.e36ab5d9.chunk.js"
   ]
 }
