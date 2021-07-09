@@ -1,30 +1,30 @@
 // import logo from "./logo.svg";
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { ToastContainer } from 'react-toastify';
 import PokemonForm from './components/Pokemon/PokemonForm';
 import PokemonInfo from './components/Pokemon/PokemonInfo';
-
-// import './App.css';
+import List from './components/List';
 
 export default class App extends Component {
   state = {
     pokemonName: '',
   };
-  heandleFormSubmit = pokemonName => {
+
+  handleFormSubmit = pokemonName => {
     this.setState({ pokemonName });
   };
 
   render() {
     return (
       <div style={{ maxWidth: 1170, margin: '0 auto', padding: 20 }}>
-        <PokemonForm onSubmit={this.heandleFormSubmit} />
+        <PokemonForm onSubmit={this.handleFormSubmit} />
         <PokemonInfo pokemonName={this.state.pokemonName} />
         <ToastContainer autoClose={3000} />
+        <List />
       </div>
     );
   }
 }
-
 // import Counter from './components/Counter';
 // import shortid from 'shortid';
 // import Dropdown from './components/Dropdown';
